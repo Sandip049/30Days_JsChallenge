@@ -1,62 +1,62 @@
 // // Tasks/Activities:
 
-// // Activity 1: Understanding Promises
+// Activity 1: Understanding Promises
 
-// // Task 1: Create a promise that resolves with a message after a 2-second timeout and log the message to the console.
-// const promiseOne = new Promise(function(resolve, reject) {
-//     setTimeout(() => {
-//         console.log('Promise is created');
-//         resolve()
-//     }, 2000);
-// })
+// Task 1: Create a promise that resolves with a message after a 2-second timeout and log the message to the console.
+const promiseOne = new Promise(function(resolve, reject) {
+    setTimeout(() => {
+        console.log('Promise is created');
+        resolve()
+    }, 2000);
+})
 
 
-// // Task 2: Create a promise that rejects with an error message after a 2-second timeout and handle the error using .catch().
-// const promiseTwo = new Promise (function (resolve, reject) {
-//     setTimeout(() => {
-//         reject("This is an error message")
-//     }, 2000);
-// })
+// Task 2: Create a promise that rejects with an error message after a 2-second timeout and handle the error using .catch().
+const promiseTwo = new Promise (function (resolve, reject) {
+    setTimeout(() => {
+        reject("This is an error message")
+    }, 2000);
+})
 
-// promiseTwo.then((message) => {
-//     console.log(message);
-// })
-// .catch((error) => {
-//     console.error('Promise Rejected :', error);
-// })
+promiseTwo.then((message) => {
+    console.log(message);
+})
+.catch((error) => {
+    console.error('Promise Rejected :', error);
+})
 
 // // Activity 2: Chaining Promises
 
-// // Task 3: Create a sequence of promises that simulate fetching data from a server. Chain the promises to log messages in a specific order.
-// // Simulating a server fetch with a promise
-// function fetchDataFromServer(data, delay) {
-//     return new Promise((resolve) => {
-//       setTimeout(() => {
-//         resolve(data);
-//       }, delay);
-//     });
-//   }
-//   // Chain of promises
-//   fetchDataFromServer("Fetching user data", 1000)
-//     .then((message) => {
-//       console.log(message);
-//       return fetchDataFromServer("Fetching user orders", 2000);
-//     })
-//     .then((message) => {
-//       console.log(message);
-//       return fetchDataFromServer("Fetching user reviews", 1000);
-//     })
-//     .then((message) => {
-//       console.log(message);
-//       return fetchDataFromServer("Fetching user recommendations", 1500);
-//     })
-//     .then((message) => {
-//       console.log(message);
-//       console.log("All data fetched");
-//     })
-//     .catch((error) => {
-//       console.error("Error:", error);
-//     });
+// Task 3: Create a sequence of promises that simulate fetching data from a server. Chain the promises to log messages in a specific order.
+// Simulating a server fetch with a promise
+function fetchDataFromServer(data, delay) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(data);
+      }, delay);
+    });
+  }
+  // Chain of promises
+  fetchDataFromServer("Fetching user data", 1000)
+    .then((message) => {
+      console.log(message);
+      return fetchDataFromServer("Fetching user orders", 2000);
+    })
+    .then((message) => {
+      console.log(message);
+      return fetchDataFromServer("Fetching user reviews", 1000);
+    })
+    .then((message) => {
+      console.log(message);
+      return fetchDataFromServer("Fetching user recommendations", 1500);
+    })
+    .then((message) => {
+      console.log(message);
+      console.log("All data fetched");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 
 // Activity 3: Using Async/Await
 
